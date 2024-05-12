@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+* {
+  user-select: none;
+}
+
+.nav {
+  width: 100%;
+  height: 25%;
+  background-color: rgb(20, 20, 247);
+  color: #fff;
+
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 3vw 0vw;
+}
+
+.logo img {
+  width: 17vw;
+  height: 10vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text h1 {
+  font-size: 3.5vw;
+}
+
+.text h6 {
+  margin-top: .5vw;
+  text-align: center;
+  font-size: 1.2vw;
+  color: #ffffffb1;
+}
+
+/* Responsive nes------------------------- */
+@media screen and (width<768px) and (width>300px) {
+  .nav {
+    width: 100vw;
+    height: 15%;
+  }
+
+  .nav-logo {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 50%;
+    height: 10%;
+    margin-left: 20vw;
+  }
+
+  .text h1 {
+    font-size: 5vw;
+  }
+
+  .text h6 {
+    font-size: 3vw;
+  }
+
+}
+
+
+.coloms {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2vw;
+  overflow: hidden;
+}
+
+.coloms h1 {
+  text-align: center;
+}
+
+.colom1 {
+  width: 30%;
+  height: 100%;
+  /* border: 1px solid #333; */
+}
+
+.colom2 {
+  width: 37%;
+  height: 100%;
+}
+
+.colom3 {
+  width: 30%;
+  height: 100%;
+
+}
+
+#gauge {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  /* background: #99999932; */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 3vw;
+}
+
+#major-ticks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+#major-ticks span {
+  position: absolute;
+  font-size: 0.7em;
+  color: #000;
+}
+
+#major-ticks span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#major-ticks span:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#major-ticks span:nth-child(3) {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+#minor-ticks {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  /* background: #99999932; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#minor-ticks span {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #afafaf;
+  transform: rotate(calc((var(--i) - 1) * 9 * 1deg));
+}
+
+#minor-ticks::after {
+  content: '';
+  position: absolute;
+  width: 93%;
+  height: 93%;
+  background: #fff;
+  border-radius: 50%;
+}
+
+#minor-ticks-bottom-mask {
+  position: absolute;
+  width: 80%;
+  height: 49%;
+  bottom: 0;
+  /* background: #99999932; */
+}
+
+#bottom-circle {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background: linear-gradient(#00000017, #0000000c);
+  border-radius: 50%;
+  box-shadow: inset 0 5px 5px #d8d5d5;
+}
+
+svg {
+  position: absolute;
+}
+
+svg path {
+  transition: 1s;
+}
+
+#center-circle {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  background: linear-gradient(180deg, #00000031 0%, #adb4ba56 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 10px rgba(119, 118, 118, 0.685);
+}
+
+#center-circle::before {
+  content: '';
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  background: linear-gradient(0deg, #fff 0%, #fff 100%);
+  border-radius: 50%;
+}
+
+#name {
+  position: absolute;
+  font-size: 1em;
+  color: #7f7f7f;
+  font-weight: 700;
+  top: 27%;
+}
+
+#center-circle img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 20px;
+}
+
+#temperature {
+  position: absolute;
+  font-size: 3em;
+  color: #afafaf;
+}
+
+#range {
+  position: absolute;
+  width: 80%;
+  bottom: 10px;
+}
+
+@media screen and (width<768px) and (width>300px) {
+
+  .coloms {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #gauge {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    /* background: #99999932; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 3vw;
+    right: 50px;
+  }
+}
